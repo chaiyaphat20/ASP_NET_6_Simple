@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ASPNET7LIVE.Services.ThaiDate;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASPNET7LIVE
@@ -7,10 +8,15 @@ namespace ASPNET7LIVE
     [ApiController]
     public class HomeController : ControllerBase
     {
+        private readonly IThaiDate  _thaiDate;
+        public HomeController(IThaiDate thaiDate) {  //Inject ผ่าน Interface
+            _thaiDate = thaiDate;
+        }
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(new {message = "Hello My API"});
+            var myThaiDate = _thaiDate.ShowThaiDate();
+            return Ok(new {message = $"My Thai Date {myThaiDate}" });
         }
     }
 }
