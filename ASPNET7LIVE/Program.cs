@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
+//>>Add database โดย APIContect คือตัวแทน DB
 builder.Services.AddDbContext<APIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("APIContext")));
+//--//
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -19,6 +19,8 @@ builder.Services.AddSwaggerGen();
 //AddScoped -> ทุกๆ req จะ new create intance พอเสร็จก็ตายไป
 //ทำให้เรียกใช้ Class Thaidate ได้  
 builder.Services.AddScoped<IThaiDate, ThaiDate>();
+//--//
+
 
 var app = builder.Build();
 
