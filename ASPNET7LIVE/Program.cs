@@ -1,8 +1,13 @@
 using ASPNET7LIVE.Services.ThaiDate;
+using ASPNET7LIVE.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<APIContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("APIContext")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
