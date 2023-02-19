@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ASPNET7LIVE.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class CategoryController : Controller
     {
         private readonly APIContext _context;

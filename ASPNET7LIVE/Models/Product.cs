@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ASPNET7LIVE.Models
 {
@@ -28,6 +29,7 @@ namespace ASPNET7LIVE.Models
 
         //relation
         //many(Product) to one(Catrgoty)   เมื่อ Category คือ model
+        [JsonIgnore]
         public Category? Category { get; set; }
 
     }

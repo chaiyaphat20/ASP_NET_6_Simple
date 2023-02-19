@@ -67,7 +67,7 @@ namespace ASPNET7LIVE.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Productc");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("ASPNET7LIVE.Models.Product", b =>

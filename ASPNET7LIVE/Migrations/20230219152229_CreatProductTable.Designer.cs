@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASPNET7LIVE.Migrations
 {
     [DbContext(typeof(APIContext))]
-    [Migration("20230219145400_CreatProductTable")]
+    [Migration("20230219152229_CreatProductTable")]
     partial class CreatProductTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,7 +69,7 @@ namespace ASPNET7LIVE.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Productc");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("ASPNET7LIVE.Models.Product", b =>
