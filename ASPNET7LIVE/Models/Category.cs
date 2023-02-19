@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ASPNET7LIVE.Models
@@ -20,5 +21,7 @@ namespace ASPNET7LIVE.Models
         public string CategoryName { get; set; } = null!;   // null!  ห้าม null หรือ none-nullable คือ CategoryName ต้องมีข้อมูล
 
         public bool IsActive { get; set; } = true;
+
+
     }
 }
