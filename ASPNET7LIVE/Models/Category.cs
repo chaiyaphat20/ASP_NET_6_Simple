@@ -8,7 +8,7 @@ namespace ASPNET7LIVE.Models
     public class Category
     {
         //[Column("cat_id")] //Mapping Column ตัว cat_id คือ column ในฐานข้อมูล ส่วน CategoryId คือ ค่าบน code จริง
-        //[Key]  //PrimaryKey
+        [Key]  //PrimaryKey
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //auto running number
         public int CategoryId { get; set; }
 

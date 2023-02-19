@@ -9,5 +9,6 @@ namespace ASPNET7LIVE.Data
         {
         }
         public DbSet<Category> Category { get; set; } = null!;
+        public DbSet<Product> Productc { get; set; } = null!;
     }
 }

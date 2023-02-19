@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ASPNET7LIVE.Models
 {
-    public class Productc
+    public class Product
     {
-
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductId { get; set; }
 
@@ -23,6 +23,12 @@ namespace ASPNET7LIVE.Models
 
         //FK
         [Required(ErrorMessage ="รหัสประเภท สินค้าห้ามว่าง")]
-        public int CategaryId { get; set; }
+        public int CategoryId { get; set; }
+
+
+        //relation
+        //many(Product) to one(Catrgoty)   เมื่อ Category คือ model
+        public Category? Category { get; set; }
+
     }
 }
