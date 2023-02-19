@@ -22,7 +22,13 @@ namespace ASPNET7LIVE.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProduct()
         {
-            var product = await _context.Product
+            var product = await _context.Product.Include(p => p.Category)
+                .Select(p => new {
+                    p.ProductId,
+                    p.ProductName,
+                    p.Category!.CategoryName,
+                    p.Category!.CategoryId
+                })
                 .ToListAsync();
             return Ok(product);
         }

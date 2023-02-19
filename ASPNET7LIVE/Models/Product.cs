@@ -29,7 +29,7 @@ namespace ASPNET7LIVE.Models
 
         //relation
         //many(Product) to one(Catrgoty)   เมื่อ Category คือ model
-        [JsonIgnore]
+       // [JsonIgnore]
         public Category? Category { get; set; }
 
     }
