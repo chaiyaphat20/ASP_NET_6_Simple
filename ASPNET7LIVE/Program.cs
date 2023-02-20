@@ -3,6 +3,9 @@ using ASPNET7LIVE.Data;
 using Microsoft.EntityFrameworkCore;
 using ASPNET7LIVE.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +37,22 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 //--//
 
+// add Jwt Service สำหรับ validate token
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
+                config =>
+                {
+                    config.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("odn051PvFMtRTBZsqmWkGJl8CHbKceQz")),
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        // set clockskew to zero so tokens expire exactly at token expiration time (instead of 5 minutes later)
+                        ClockSkew = TimeSpan.Zero
+                    };
+
+                }
+            );
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

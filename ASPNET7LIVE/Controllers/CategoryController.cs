@@ -1,7 +1,7 @@
 ﻿using ASPNET7LIVE.Data;
 using ASPNET7LIVE.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASPNET7LIVE.Controllers
@@ -51,6 +51,7 @@ namespace ASPNET7LIVE.Controllers
 
 
         // GET BY ID: api/Category/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategory(int id)
         {
@@ -77,6 +78,7 @@ namespace ASPNET7LIVE.Controllers
         }
 
         //Delete Data
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {

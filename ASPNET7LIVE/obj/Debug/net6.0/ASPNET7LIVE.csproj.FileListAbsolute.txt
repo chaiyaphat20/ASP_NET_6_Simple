@@ -278,3 +278,4 @@ C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\obj\Debug\net6.0\refint
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\obj\Debug\net6.0\ASPNET7LIVE.pdb
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\obj\Debug\net6.0\ASPNET7LIVE.genruntimeconfig.cache
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\obj\Debug\net6.0\ref\ASPNET7LIVE.dll
+C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
