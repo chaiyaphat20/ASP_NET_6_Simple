@@ -2,7 +2,6 @@
 using ASPNET7LIVE.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using NuGet.Protocol;
 
 namespace ASPNET7LIVE.Controllers
