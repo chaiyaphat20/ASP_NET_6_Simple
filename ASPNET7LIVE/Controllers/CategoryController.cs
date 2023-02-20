@@ -17,6 +17,7 @@ namespace ASPNET7LIVE.Controllers
             _context = context;
         }
 
+        /*
         // GET ALL : api/Category
         // Task<ActionResult<IEnumerable<Category>>>
         [HttpGet]
@@ -29,7 +30,23 @@ namespace ASPNET7LIVE.Controllers
             var categoryFromSQL = await _context.Category.FromSqlRaw("select * from Category order by CategoryId desc").ToListAsync();
 
             var total = await _context.Category.CountAsync();
-            return Ok(new { toTALrOW = total, data = categoryFromSQL });
+            return Ok(new { totalRow = total, data = categoryFromSQL });
+        }
+        */
+
+        //api/Category
+        //api/category?page=1&pageSize=3
+        [HttpGet]
+        public async Task<IActionResult> GetCategoryPag(int page =1,int pageSize = 3)
+        {
+            var category = await _context.Category.
+                OrderByDescending(c => c.CategoryId)
+                .Skip((page-1) * pageSize ) //page-1 * pageSize คือ สูตรมาตฐานทำ pagination  -> page=1 skip ไป 0 หน้า 
+                .Take(pageSize) //กำหนดว่าต้องการแสดงผล take = 3 นั้นคือ ให้แสดง 1 หน้า มี 3 record
+                .AsNoTracking().ToListAsync();
+
+            var total = await _context.Category.CountAsync();
+            return Ok(new { totalRow = total, data = category }); ;
         }
 
 

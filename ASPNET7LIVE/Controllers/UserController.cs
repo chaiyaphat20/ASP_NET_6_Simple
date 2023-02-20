@@ -7,5 +7,15 @@ namespace ASPNET7LIVE.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        public UserController() { 
+        
+        }
+
+        // api/user/register
+        [HttpPost]
+        public async Task<IActionResult> Register()
+        {
+            return Ok();
+        }
     }
 }
