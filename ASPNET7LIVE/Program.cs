@@ -90,11 +90,12 @@ if (app.Environment.IsDevelopment())
 }
 
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthentication();;
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+//app.Run();
+app.Run("http://localhost:5000");
