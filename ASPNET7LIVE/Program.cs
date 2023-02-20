@@ -10,6 +10,9 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 
+//CORS
+builder.Services.AddCors();
+
 //>>Add database โดย APIContect คือตัวแทน DB
 builder.Services.AddDbContext<APIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("APIContext")));
@@ -68,6 +71,15 @@ builder.Services.AddScoped<IThaiDate, ThaiDate>();
 
 var app = builder.Build();
 
+//global cors policy
+app.UseCors(options => options
+        //.WithOrigins("https://example.com", "https://codingthailand.com")
+        .AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+);
+
+
 app.UseStaticFiles();  //สามารถ อัพ load file ได้
 
 // Configure the HTTP request pipeline.
@@ -76,13 +88,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-//global cors policy
-app.UseCors(options => options
-        //.WithOrigins("https://example.com", "https://codingthailand.com")
-        .AllowAnyOrigin()
-        .AllowAnyHeader()
-        .AllowAnyMethod()
-);
 
 
 app.UseHttpsRedirection();

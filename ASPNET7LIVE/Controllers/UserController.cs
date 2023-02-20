@@ -1,5 +1,7 @@
 ﻿using ASPNET7LIVE.Areas.Identity.Data;
 using ASPNET7LIVE.ViewModels;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -114,6 +116,39 @@ namespace ASPNET7LIVE.Controllers
 
             }
             return Unauthorized();
+        }
+
+        // api/user/profile
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> Profile()
+        {
+            //get token from header
+            var token = await HttpContext.GetTokenAsync("access_token");
+
+            //decode token and get user_id
+            var payload = new JwtSecurityToken(token);
+            var userId = payload.Claims.First(p => p.Type == "user_id").Value; // user's id
+
+            // หรือ จะใช้คำสั่งนี้คำสั่งเดียว แทนบรรทัดที่ 128 131 132 ได้เลยครับ
+            // var userId = User.Claims.First(p => p.Type == "user_id").Value;
+
+            //เอา userId ไปค้นหาในตาราง แล้ว return ข้อมูลออกไป
+            var userProfile = await _userManager.FindByIdAsync(userId);
+
+
+
+            return Ok(new
+            {
+                Id = userProfile.Id,
+                Fullname = userProfile.FullName,
+                Email = userProfile.Email,
+
+                //Request.Scheme คือ การดึง https,http   
+                //Request.Host คือ localhost
+                PhotoUrl = $"{Request.Scheme}://{Request.Host}/upload/{userProfile.Photo}"
+            });
+
         }
     }
 }
