@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ASPNET7LIVE.ViewModels
 {
-    public class UserViewModel
+    public class RegisterViewModel
     {
         [Required(ErrorMessage = "ชื่อสกุลห้ามว่าง ห้ามว่าง")]
         public string FullName { get; set; } = null!;

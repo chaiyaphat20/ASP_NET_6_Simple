@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ASPNET7LIVE.Areas.Identity.Data;
+using ASPNET7LIVE.ViewModels;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASPNET7LIVE.Controllers
@@ -7,15 +10,30 @@ namespace ASPNET7LIVE.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        public UserController() { 
-        
+        private readonly UserManager<User>  _userManager;  //ไว้ manage user
+        private readonly SignInManager<User>  _signInManager;  //ไว้ทำ login
+        public UserController(UserManager<User> userManager, SignInManager<User> signInManager) {
+            _userManager = userManager;
+            _signInManager= signInManager;
         }
 
         // api/user/register
         [HttpPost]
-        public async Task<IActionResult> Register()
+        public async Task<IActionResult> Register(RegisterViewModel register)
         {
-            return Ok();
+            var user = new User
+            {
+                FullName = register.FullName,
+                Email = register.Email,
+                UserName = register.Email
+            };
+
+            var result =   await _userManager.CreateAsync(user,register.Password);
+            if(result.Succeeded)
+            {
+                return  Created("", new {massage = "ลงทะเบียนสำเร็จ"});
+            }
+            return BadRequest(new {message = "เกิดข้อผิดพลาดมีผู้ใช้งานแล้ว"});
         }
     }
 }

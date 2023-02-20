@@ -8,5 +8,8 @@ public class User : IdentityUser
 {
     [Required(ErrorMessage = "ชื่อสกุล ห้ามว่าง")]
     public string FullName { get; set; } = null!;
+
+
+    public string Photo { get; set; } = "nopic.png";  //ประกาศ default value = "nopic.png"
 }
 
