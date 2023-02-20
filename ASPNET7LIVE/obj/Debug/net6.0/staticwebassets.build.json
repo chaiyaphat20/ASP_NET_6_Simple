@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dsOcglfkMA5Qyxh170k1Ft/4zHCBqvT9idrq697dbig=",
+  "Hash": "5xhm/QfsWUUokKWb6OFBqCL7WDq1QhN50AMQ6KTS/Pg=",
   "Source": "ASPNET7LIVE",
   "BasePath": "_content/ASPNET7LIVE",
   "Mode": "Default",
@@ -1392,6 +1392,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\art\\Desktop\\asp_project\\ASPNET7LIVE\\ASPNET7LIVE\\wwwroot\\upload\\24724209-850b-4deb-95a2-72e4faa98cc0.png",
+      "SourceId": "ASPNET7LIVE",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\art\\Desktop\\asp_project\\ASPNET7LIVE\\ASPNET7LIVE\\wwwroot\\",
+      "BasePath": "_content/ASPNET7LIVE",
+      "RelativePath": "upload/24724209-850b-4deb-95a2-72e4faa98cc0.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\24724209-850b-4deb-95a2-72e4faa98cc0.png"
     }
   ]
 }

@@ -16,6 +16,7 @@ builder.Services.AddDbContext<APIContext>(options =>
 //>> Identity db
 //options.SignIn.RequireConfirmedAccount = true  เมื่อ true ต้องมีการ comfirm mail หรือ admin confirm
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<IdentityContext>();
 
 //set context
@@ -47,6 +48,8 @@ builder.Services.AddScoped<IThaiDate, ThaiDate>();
 
 
 var app = builder.Build();
+
+app.UseStaticFiles();  //สามารถ อัพ load file ได้
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
