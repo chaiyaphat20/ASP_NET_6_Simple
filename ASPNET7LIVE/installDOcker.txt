@@ -1,0 +1,72 @@
+1.จะติดปัญหา ทำ expose port จาก เรียกจาก ภายนอก docker ไม่ได้
+"Kestrel": {
+    "EndPoints": {
+      "Http": {
+        "Url": "http://+:80"
+      }
+    }
+  }
+
+
+2.เขียน Dockerfile
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+ENV ASPNETCORE_URLS=http://+:80
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY ["ASPNET7LIVE.csproj", "./"]
+RUN dotnet restore "ASPNET7LIVE.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "ASPNET7LIVE.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "ASPNET7LIVE.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "ASPNET7LIVE.dll"]
+
+3.docker-compose.yml
+version: '4.0'
+
+services:
+  aspnet7live:
+    image: aspnet7live
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:80
+
+  sql_server_db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql_server
+    ports:
+      - 9001:1433
+    volumes:
+      - ./data:/var/opt/mssql/data
+      - ./log:/var/opt/mssql/log
+      - ./secrets:/var/opt/mssql/secrets
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Kolaza87115+
+
+
+4.
+"ConnectionStrings": {
+    "APIContext": "Data Source=sql_server_db;Initial Catalog=chaiyaphatdb;Persist Security Info=True;User ID=sa;Password=Kolaza87115+",
+    "IdentityContext": "Data Source=sql_server_db;Initial Catalog=chaiyaphatdb;Persist Security Info=True;User ID=sa;Password=Kolaza87115+"
+  },
+
+5.ถ้ารันได้ แต่ไม่มีข้อมูล ให้สร้าง database: chaiyaphatdb แล้ว migration แต่ต้องเปลี่ยน เป็น
+"ConnectionStrings": {
+    "APIContext": "Data Source=localhost,9001;Initial Catalog=chaiyaphatdb;Persist Security Info=True;User ID=sa;Password=Kolaza87115+",
+    "IdentityContext": "Data Source=localhost,9001;Initial Catalog=chaiyaphatdb;Persist Security Info=True;User ID=sa;Password=Kolaza87115+"
+  },
+

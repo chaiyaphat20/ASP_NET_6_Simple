@@ -28,6 +28,8 @@ $ dotnet ef database update --context IdentityContext
 $ dotnet ef migrations remove --context IdentityContext
 
 
+
+
 ตอนทำ migration
  "ConnectionStrings": {
     "APIContext": "Data Source=localhost,9001;Initial Catalog=chaiyaphatdb;Persist Security Info=True;User ID=sa;Password=Kolaza87115+",
