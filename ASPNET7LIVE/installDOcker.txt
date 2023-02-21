@@ -1,4 +1,5 @@
 1.จะติดปัญหา ทำ expose port จาก เรียกจาก ภายนอก docker ไม่ได้
+https://stackoverflow.com/questions/64234333/asp-net-core-docker-not-accessible-on-specified-port
 "Kestrel": {
     "EndPoints": {
       "Http": {
