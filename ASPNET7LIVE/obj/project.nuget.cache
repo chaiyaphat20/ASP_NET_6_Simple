@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lvXuzjv56AM+nvZXcDmQPpTncB+jNDBS815V7ceU4UBNYLCYvTpAhEMEouD+e4C2Ii6E9fvtw2itfvvOt5dmyA==",
+  "dgSpecHash": "Yb09Y5WPsZih++hBDkWWyHCsOYj+jlG5VvmDFhok3Wta49w90h2XjRzpqjYQmuiKf3N426UPMH/4yiu+52G31A==",
   "success": true,
   "projectFilePath": "C:\\Users\\art\\Desktop\\asp_project\\ASPNET7LIVE\\ASPNET7LIVE\\ASPNET7LIVE.csproj",
   "expectedPackageFiles": [
@@ -68,6 +68,7 @@
     "C:\\Users\\art\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Users\\art\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
     "C:\\Users\\art\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\art\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\art\\.nuget\\packages\\microsoft.visualstudio.debugger.contracts\\17.2.0\\microsoft.visualstudio.debugger.contracts.17.2.0.nupkg.sha512",
     "C:\\Users\\art\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\6.0.12\\microsoft.visualstudio.web.codegeneration.6.0.12.nupkg.sha512",
     "C:\\Users\\art\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\6.0.12\\microsoft.visualstudio.web.codegeneration.core.6.0.12.nupkg.sha512",

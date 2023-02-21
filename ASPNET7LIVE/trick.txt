@@ -1,0 +1,67 @@
+Migration ใช้สร้าง Table และ Data แบบไม่ต้องไป สร้างเองที่ DBeaver
+***ชื่อ migrations ชื่ออะไร ก็ได้
+
+เตรียมพร้อม
+1.ต้องมี APIContext ที่มี DbSet เรียบร้อย
+2.Model
+
+เริ่มสร้าง ไปที่ view-> terminal
+1.Add migrations
+$ dotnet ef migrations add <Create +  Model + Table>
+ex. dotnet ef migrations add CreateCategoryTable  ;model ชื่อ Category
+**มันจะ Map ที่ APIContext
+
+**ถ้าขึ้น ef-core-add-migration-build-failed ให้ ไปที่ build -> clean sulution-> rebuild sulution
+
+
+2.Remove migration คือ การ undo ไป 1 step
+$ dotnet ef migrations remove
+
+3.Create/Update db and schema(lastest migration)
+$ dotnet ef database update
+
+//ทำ identity
+4.ถ้ามีหลาย context ต้องมี flag --context <context_name> หรือ -c <context_name>
+ex.
+$ dotnet ef migrations add CreateCategorySchema --context IdentityContext
+$ dotnet ef database update --context IdentityContext
+$ dotnet ef migrations remove --context IdentityContext
+
+
+ตอนทำ migration
+ "ConnectionStrings": {
+    "APIContext": "Data Source=localhost,9001;Initial Catalog=chaiyaphatdb;Persist Security Info=True;User ID=sa;Password=Kolaza87115+",
+    "IdentityContext": "Data Source=localhost,9001;Initial Catalog=chaiyaphatdb;Persist Security Info=True;User ID=sa;Password=Kolaza87115+"
+  },
+
+ตอนทำ api
+  "ConnectionStrings": {
+    "APIContext": "Data Source=sql_server_db;Initial Catalog=chaiyaphatdb;Persist Security Info=True;User ID=sa;Password=Kolaza87115+",
+    "IdentityContext": "Data Source=sql_server_db;Initial Catalog=chaiyaphatdb;Persist Security Info=True;User ID=sa;Password=Kolaza87115+"
+  },
+
+โดย sql_server_db มากจาก
+
+services:
+  aspnet7live:
+    image: aspnet7live
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:80
+
+  sql_server_db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql_server
+    ports:
+      - 9001:1433
+    volumes:
+      - ./data:/var/opt/mssql/data
+      - ./log:/var/opt/mssql/log
+      - ./secrets:/var/opt/mssql/secrets
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Kolaza87115+
+
+

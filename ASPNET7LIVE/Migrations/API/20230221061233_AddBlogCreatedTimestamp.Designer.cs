@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ASPNET7LIVE.Migrations
+namespace ASPNET7LIVE.Migrations.API
 {
     [DbContext(typeof(APIContext))]
-    [Migration("20230219152229_CreatProductTable")]
-    partial class CreatProductTable
+    [Migration("20230221061233_AddBlogCreatedTimestamp")]
+    partial class AddBlogCreatedTimestamp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

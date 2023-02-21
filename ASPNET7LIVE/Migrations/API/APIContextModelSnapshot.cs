@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ASPNET7LIVE.Migrations
+namespace ASPNET7LIVE.Migrations.API
 {
     [DbContext(typeof(APIContext))]
     partial class APIContextModelSnapshot : ModelSnapshot

@@ -9,6 +9,7 @@ C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\bin\Debug\net6.0\ASPNET
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\bin\Debug\net6.0\Humanizer.dll
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\bin\Debug\net6.0\MessagePack.dll
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\bin\Debug\net6.0\MessagePack.Annotations.dll
+C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -278,4 +279,3 @@ C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\obj\Debug\net6.0\refint
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\obj\Debug\net6.0\ASPNET7LIVE.pdb
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\obj\Debug\net6.0\ASPNET7LIVE.genruntimeconfig.cache
 C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\obj\Debug\net6.0\ref\ASPNET7LIVE.dll
-C:\Users\art\Desktop\asp_project\ASPNET7LIVE\ASPNET7LIVE\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

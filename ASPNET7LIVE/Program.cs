@@ -64,7 +64,7 @@ builder.Services.AddSwaggerGen();
 //Custom Service
 //การทำ di
 //AddScoped -> ทุกๆ req จะ new create intance พอเสร็จก็ตายไป
-//ทำให้เรียกใช้ Class Thaidate ได้  
+//ทำให้เรียกใช้ Class Thaidate ได้
 builder.Services.AddScoped<IThaiDate, ThaiDate>();
 //--//
 
@@ -98,4 +98,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 //app.Run();
-app.Run("http://localhost:5000");
+app.Run("http://localhost:80");
